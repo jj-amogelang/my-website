@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaTelegram, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -58,19 +58,16 @@ const HomePage = () => {
       </div>
 
       <div className="social-links">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/jj-amogelang" target="_blank" rel="noopener noreferrer">
           <FaGithub /> Github
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/amogelang-sehlako-b2246b281/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin /> LinkedIn
         </a>
-        <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
-          <FaTelegram /> Telegram
+        <a href="https://x.com/Juss_Amo_" target="_blank" rel="noopener noreferrer">
+          <FaTwitter /> X
         </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-          <FaFacebook /> Facebook
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/a.for.amo/" target="_blank" rel="noopener noreferrer">
           <FaInstagram /> Instagram
         </a>
       </div>
