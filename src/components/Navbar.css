@@ -1,0 +1,56 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo a {
+  color: #2d3436;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #636e72;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.nav-links a:hover {
+  color: #0984e3;
+  background-color: #f5f6fa;
+}
+
+.nav-links a.active {
+  color: #0984e3;
+  background-color: #f5f6fa;
+}
+
+.language-selector {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.language-selector button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.language-selector button:hover {
+  opacity: 1;
+} 
