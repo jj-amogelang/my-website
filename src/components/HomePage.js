@@ -109,7 +109,8 @@ const HomePage = () => {
                   alt={skill.name}
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.textContent = skill.icon;
+                    e.target.src = ''; // Clear the src to hide the broken image icon
+                    e.target.parentNode.textContent = skill.icon; // Display the emoji icon
                   }}
                 />
               </div>
@@ -122,4 +123,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage; 
+export default HomePage;
