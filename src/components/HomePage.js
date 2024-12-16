@@ -110,7 +110,9 @@ const HomePage = () => {
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = ''; // Clear the src to hide the broken image icon
-                    e.target.parentNode.textContent = skill.icon; // Display the emoji icon
+                    if (e.target.parentNode) {
+                      e.target.parentNode.textContent = skill.icon; // Display the emoji icon
+                    }
                   }}
                 />
               </div>
