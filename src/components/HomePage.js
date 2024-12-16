@@ -1,26 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import './HomePage.css';
 
 const HomePage = () => {
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-  
-  const slides = [
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const projects = [
     {
-      title: "The simplest example",
-      subtitle: "kafka + golang",
-      description: "This article presents a simple way to implement a micro-service architecture using Kafka, Golang and Docker.",
+      title: 'Project One',
+      subtitle: 'AeroGrow WebApp',
+      description: 'Description for project one.',
+      image: '/images/projects/aerogrow.png',
+      link: '/project-one'
     },
-    // Add more slides as needed
+    {
+      title: 'Project Two',
+      subtitle: 'DumelaHealth WebApp',
+      description: 'Description for project two.',
+      image: '/images/projects/dumelahealth.png',
+      link: '/project-two'
+    },
+    {
+      title: 'Project Three',
+      subtitle: 'Phase E-commerce Website',
+      description: 'Description for project three.',
+      image: '/images/projects/phase.png',
+      link: '/project-three'
+    }
   ];
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentSlide((prev) => (prev + 1) % projects.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   const skills = [
@@ -75,19 +90,19 @@ const HomePage = () => {
       <div className="slider-container">
         <button className="slider-arrow left" onClick={prevSlide}>←</button>
         <div className="slider-content">
-          {slides.map((slide, index) => (
+          {projects.map((project, index) => (
             <div
               key={index}
               className={`slide ${currentSlide === index ? 'active' : ''}`}
             >
               <div className="slide-image">
-                {/* Add your slide image here */}
+                <img src={project.image} alt={project.title} />
               </div>
               <div className="slide-text">
-                <h3>{slide.title}</h3>
-                <p>{slide.subtitle}</p>
-                <p>{slide.description}</p>
-                <Link to="/article" className="read-more">
+                <h3>{project.title}</h3>
+                <p>{project.subtitle}</p>
+                <p>{project.description}</p>
+                <Link to={project.link} className="read-more">
                   Read more
                   <span className="arrow">→</span>
                 </Link>

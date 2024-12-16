@@ -2,22 +2,24 @@
   background-color: #ffffff;
   min-height: 100vh;
   color: #2d3436;
-  padding: 2rem;
+  padding: 20px;
 }
 
 .hero-section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 3rem;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .main-title {
-  font-size: 4rem;
+  font-size: 2.5em;
   font-family: 'Space Mono', monospace;
   display: flex;
   flex-direction: column;
   color: #2d3436;
+  margin-bottom: 10px;
 }
 
 .subtitle {
@@ -66,7 +68,7 @@
   transition: all 0.3s ease;
 }
 
-.social-links a:hover {
+social-links a:hover {
   background-color: #74b9ff;
   color: white;
   transform: translateY(-2px);
@@ -74,11 +76,13 @@
 
 .slider-container {
   position: relative;
-  margin: 2rem 0;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .slider-arrow {
-  background: #f5f6fa;
+  background: none;
   border: none;
   color: #2d3436;
   width: 3rem;
@@ -88,8 +92,16 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 10;
   transition: all 0.3s ease;
+}
+
+.slider-arrow.left {
+  left: 10px;
+}
+
+.slider-arrow.right {
+  right: 10px;
 }
 
 .slider-arrow:hover {
@@ -98,7 +110,8 @@
 }
 
 .slider-content {
-  overflow: hidden;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
   border-radius: 1rem;
   background: #f5f6fa;
   padding: 2rem;
@@ -106,19 +119,43 @@
 }
 
 .slide {
+  min-width: 100%;
+  box-sizing: border-box;
   display: none;
-  grid-template-columns: 1fr 1fr;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 2rem;
 }
 
 .slide.active {
-  display: grid;
+  display: flex;
 }
 
 .slide-image {
-  background: linear-gradient(45deg, #ff6b6b, #6b66ff);
   border-radius: 1rem;
   aspect-ratio: 16/9;
+}
+
+.slide-image img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.slide-text {
+  max-width: 600px;
+}
+
+.slide-text h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.slide-text p {
+  margin-bottom: 10px;
 }
 
 .read-more {
@@ -127,10 +164,15 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 10px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 1.5rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.read-more:hover {
+  background-color: #0056b3;
 }
 
 .skills-section {
@@ -209,4 +251,4 @@
   .skill-name {
     font-size: 0.8rem;
   }
-} 
+}
