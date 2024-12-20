@@ -51,7 +51,7 @@ const HomePage = () => {
       title: 'TCS Sustainathon',
       subtitle: 'Promoting water sustainability through innovation',
       description: 'Description for project three.',
-      image: '/images/blog/pic4.jpg',
+      image: '/images/blog/pic4.JPG',
       link: '/project-three'
     }
   ];
