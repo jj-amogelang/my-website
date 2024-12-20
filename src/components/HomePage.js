@@ -77,6 +77,8 @@ const HomePage = () => {
     { name: 'AWS', icon: <SiAmazonaws /> }
   ];
 
+  const duplicatedSkills = [...skills, ...skills];
+
   return (
     <div className="home-container">
       <div className="hero-section">
@@ -141,15 +143,17 @@ const HomePage = () => {
 
       <div className="skills-section">
         <h2 className="skills-title">My Skills</h2>
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <div key={index} className="skill-card">
-              <div className="skill-icon">
-                {skill.icon}
+        <div className="skills-slider-container">
+          <div className="skills-track">
+            {duplicatedSkills.map((skill, index) => (
+              <div key={index} className="skill-card">
+                <div className="skill-icon">
+                  {skill.icon}
+                </div>
+                <p className="skill-name">{skill.name}</p>
               </div>
-              <p className="skill-name">{skill.name}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
