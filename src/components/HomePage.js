@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { 
+  SiPython, 
+  SiReact, 
+  SiUbuntu, 
+  SiGit, 
+  SiMongodb, 
+  SiHtml5, 
+  SiJavascript, 
+  SiFlask, 
+  SiMysql, 
+  SiAmazonaws 
+} from 'react-icons/si';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -39,16 +51,16 @@ const HomePage = () => {
   };
 
   const skills = [
-    { name: 'Python', icon: '🐍' },
-    { name: 'React', icon: '📱' },
-    { name: 'Ubuntu', icon: '🐧' },
-    { name: 'Git-Source-Control', icon: '📚' },
-    { name: 'MongoDB', icon: '🍃' },
-    { name: 'HTML&CSS', icon: '🎨' },
-    { name: 'JavaScript', icon: '⚡' },
-    { name: 'Flask', icon: '🌶️' },
-    { name: 'MySQL', icon: '📊' },
-    { name: 'AWS', icon: '☁️' }
+    { name: 'Python', icon: <SiPython /> },
+    { name: 'React', icon: <SiReact /> },
+    { name: 'Ubuntu', icon: <SiUbuntu /> },
+    { name: 'Git Source Control', icon: <SiGit /> },
+    { name: 'MongoDB', icon: <SiMongodb /> },
+    { name: 'HTML & CSS', icon: <SiHtml5 /> },
+    { name: 'JavaScript', icon: <SiJavascript /> },
+    { name: 'Flask', icon: <SiFlask /> },
+    { name: 'MySQL', icon: <SiMysql /> },
+    { name: 'AWS', icon: <SiAmazonaws /> }
   ];
 
   return (
@@ -119,17 +131,7 @@ const HomePage = () => {
           {skills.map((skill, index) => (
             <div key={index} className="skill-card">
               <div className="skill-icon">
-                <img 
-                  src={`/images/skills/${skill.name.toLowerCase().replace(/\s+/g, '-')}.png`} 
-                  alt={skill.name}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = ''; // Clear the src to hide the broken image icon
-                    if (e.target.parentNode) {
-                      e.target.parentNode.textContent = skill.icon; // Display the emoji icon
-                    }
-                  }}
-                />
+                {skill.icon}
               </div>
               <p className="skill-name">{skill.name}</p>
             </div>
