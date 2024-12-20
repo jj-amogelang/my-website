@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Portfolio.css';
+import Modal from './Modal';
 
 const Portfolio = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   const portfolioItems = [
     {
       id: 1,
-      image: '/images/projects/Logo1.png',
+      image: '/images/projects/Lenses2.jpg',
       title: 'Standard Lenses',
       category: 'Logo Design',
-      description: 'A minimalist logo design for an optometry business, focusing on clean lines and professional aesthetics.'
+      description: 'A minimalist logo design for a photography business, focusing on quality pictures and professional portraits.',
+      task: 'I created and designed a modern and professional logo design that reflects the precision and quality of photography services.',
+      idea: 'The design emphasizes clarity and professionalism through minimalist elements and a clean typography choice.',
+      images: [
+        '/images/projects/Lenses1.png',
+        '/images/projects/Lenses3.png',
+        '/images/projects/Lenses2.jpg'
+      ]
     },
     {
       id: 2,
@@ -24,7 +34,16 @@ const Portfolio = () => {
       title: 'PHASE Apparel',
       category: 'Apparel Design',
       description: 'Contemporary streetwear brand focusing on unique designs and quality materials.',
-      link: '/project/phase-apparel'
+      task: ' ',
+      idea: ' ',
+      images: [
+        '/images/projects/phaseA.png',
+        '/images/projects/phaseB.jpg',
+        '/images/projects/phaseC.jpg',
+        '/images/projects/phaseD.png',
+        '/images/projects/phaseE.png',
+        '/images/projects/phaseF.JPG'
+      ]
     },
     {
       id: 4,
@@ -52,6 +71,10 @@ const Portfolio = () => {
     }
   ];
 
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+  };
+
   return (
     <div className="portfolio-container">
       <div className="portfolio-content">
@@ -65,9 +88,12 @@ const Portfolio = () => {
                   <h3>{item.title}</h3>
                   <p className="category">{item.category}</p>
                   <p className="description">{item.description}</p>
-                  <a href={item.link} className="see-more">
+                  <button 
+                    className="see-more"
+                    onClick={() => handleProjectClick(item)}
+                  >
                     See More →
-                  </a>
+                  </button>
                 </div>
               </div>
               <div className="portfolio-info">
@@ -84,6 +110,12 @@ const Portfolio = () => {
           <span className="dot"></span>
         </div>
       </div>
+      {selectedProject && (
+        <Modal 
+          project={selectedProject} 
+          onClose={() => setSelectedProject(null)} 
+        />
+      )}
     </div>
   );
 };
