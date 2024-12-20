@@ -11,7 +11,7 @@ const Portfolio = () => {
       image: '/images/projects/Lenses2.jpg',
       title: 'Standard Lenses',
       category: 'Logo Design',
-      description: 'A minimalist logo design for a photography business, focusing on quality pictures and professional portraits.',
+      description: ' Some minimalist designs for a photography business, focusing on quality pictures and professional portraits.',
       task: 'I created and designed a modern and professional logo design that reflects the precision and quality of photography services.',
       idea: 'The design emphasizes clarity and professionalism through minimalist elements and a clean typography choice.',
       images: [
@@ -23,10 +23,10 @@ const Portfolio = () => {
     {
       id: 2,
       image: '/images/projects/Logo2.png',
-      title: 'Amazon Scrapper',
-      description: 'A simple blog which has user authentication such as Sign Up.',
+      title: 'SUR-MONTER',
+      description: 'A simple logo and flyers for a Fast-Food Francise.',
       link: '/project/amazon-scrapper',
-      category: 'Apparel Design'
+      category: 'Logo Design',
     },
     {
       id: 3,
