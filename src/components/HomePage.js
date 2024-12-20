@@ -20,24 +20,38 @@ const HomePage = () => {
 
   const projects = [
     {
-      title: 'Project One',
-      subtitle: 'AeroGrow WebApp',
+      title: 'Graduation',
+      subtitle: 'BSc Information Technology specializing in Robotics Programming',
       description: 'Description for project one.',
-      image: '/images/projects/aerogrow.png',
+      image: '/images/blog/pic.JPG',
       link: '/project-one'
     },
     {
-      title: 'Project Two',
-      subtitle: 'DumelaHealth WebApp',
+      title: 'Old Mutual Grad Program',
+      subtitle: 'Top 30 finalists developing application using AWS services',
       description: 'Description for project two.',
-      image: '/images/projects/dumelahealth.png',
+      image: '/images/blog/pic1.jpg',
       link: '/project-two'
     },
     {
-      title: 'Project Three',
-      subtitle: 'Phase E-commerce Website',
+      title: 'Github Constellation',
+      subtitle: 'Developing application using github co-pilot',
       description: 'Description for project three.',
-      image: '/images/projects/phase.png',
+      image: '/images/blog/pic2.jpg',
+      link: '/project-three'
+    },
+    {
+      title: 'Geekulcha Annual Hackathon',
+      subtitle: 'Developing innovating application for public service and administration',
+      description: 'Description for project three.',
+      image: '/images/blog/pic3.jpg',
+      link: '/project-three'
+    },
+    {
+      title: 'TCS Sustainathon',
+      subtitle: 'Promoting water sustainability through innovation',
+      description: 'Description for project three.',
+      image: '/images/blog/pic4.jpg',
       link: '/project-three'
     }
   ];
