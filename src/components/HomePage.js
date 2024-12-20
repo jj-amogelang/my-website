@@ -56,7 +56,7 @@ const HomePage = () => {
       <div className="hero-section">
         <div className="title-section">
           <h1 className="main-title">
-            <span>Innovative Technologist</span>
+            <span>Creativity Meets</span>
             <span>Aspiring Robotics Engineer</span>
           </h1>
           <p className="subtitle">
