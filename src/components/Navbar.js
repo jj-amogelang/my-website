@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
         <Link to="/">About</Link>
         <Link to="/projects">Projects</Link>
-        <Link to="/articles">Business</Link>
+        <Link to="https://evo-jj-amogelangs-projects.vercel.app/">Business</Link>
         <Link to="/ContactForm">Contacts</Link>
       </div>
       <div className="menu-icon" onClick={toggleNavbar}>
