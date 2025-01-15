@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaBriefcase } from 'react-icons/fa';
 import { 
   SiPython, 
   SiReact, 
@@ -15,8 +15,52 @@ import {
 } from 'react-icons/si';
 import './HomePage.css';
 
+const achievementData = {
+  Education: {
+    title: "BSc Information Technology",
+    image: "/images/blog/pic.JPG",
+    description: "Graduated with distinction in Robotics Programming from Eduvos Institute",
+    stats: {
+      year: "2023",
+      gpa: "3.8/4.0",
+      specialization: "Robotics"
+    }
+  },
+  Experience: {
+    title: "Old Mutual Grad Hackathon",
+    image: "/images/blog/pic1.jpg",
+    description: "Top 30 finalists developing application using AWS services",
+    stats: {
+      duration: "3 days",
+      projects: "1",
+      impact: "30% efficiency"
+    }
+  },
+  Competitions: {
+    title: "Github Constellation",
+    image: "/images/blog/pic2.jpg",
+    description: "Developing application using github co-pilot",
+    stats: {
+      participants: "300",
+      ranking: "",
+      prize: ""
+    }
+  },
+  Innovations: {
+    title: "TCS Sustainathon",
+    image: "/images/blog/pic4.JPG",
+    description: "Promoting water sustainability through innovation",
+    stats: {
+      participants: "15 groups",
+      ranking: "3rd Place",
+      prize: "R10,000"
+    }
+  }
+};
+
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedMenu, setSelectedMenu] = useState('Education');
 
   const projects = [
     {
@@ -79,19 +123,98 @@ const HomePage = () => {
 
   const duplicatedSkills = [...skills, ...skills];
 
+  const stats = {
+    userInterface: {
+      label: 'User Interface',
+      values: [20, 35, 45, 60, 85], // Example progression values
+    }
+  };
+
+  const currentAchievement = achievementData[selectedMenu];
+
   return (
     <div className="home-container">
-      <div className="hero-section">
-        <div className="title-section">
-          <h1 className="main-title">
-            <span>Creativity Meets</span>
-            <span>Aspiring Robotics Engineer</span>
-          </h1>
-          <p className="subtitle">
-          Welcome to my world of innovation and discovery! I'm an IT professional with a passion for creating smart solutions that connect technology with human needs. With a background in robotics programming, web development, and a knack for mathematical problem-solving, I thrive at the intersection of creativity and technology.
-          </p>
+      <div className="profile-header">
+        <div className="profile-main">
+          <h1>Welcome to my world of innovation and discovery! —</h1>
+          <div className="profile-role">
+            <span className="role-tag">
+              <FaBriefcase className="role-icon" />
+              <div className="role-selector">
+                <span className="current-role">{selectedMenu}</span>
+                <div className="role-options">
+                  <button 
+                    className={selectedMenu === 'Education' ? 'active' : ''} 
+                    onClick={() => setSelectedMenu('Education')}
+                  >
+                    Education
+                  </button>
+                  <button 
+                    className={selectedMenu === 'Experience' ? 'active' : ''} 
+                    onClick={() => setSelectedMenu('Experience')}
+                  >
+                    Experience
+                  </button>
+                  <button 
+                    className={selectedMenu === 'Competitions' ? 'active' : ''} 
+                    onClick={() => setSelectedMenu('Competitions')}
+                  >
+                    Competitions
+                  </button>
+                  <button 
+                    className={selectedMenu === 'Innovations' ? 'active' : ''} 
+                    onClick={() => setSelectedMenu('Innovations')}
+                  >
+                    Innovations
+                  </button>
+                </div>
+              </div>
+            </span>
+            <span className="role-separator">—</span>
+            <span className="role-company">Yup, that's me!</span>
+          </div>
+        </div>
+        <div className="profile-image">
+          <img src="/images/profile.JPEG" alt="Profile" />
+        </div>
+      </div>
+
+      <div className="stats-grid">
+        <div className="stat-card achievement-title">
+          <div className="stat-label">ACHIEVEMENT</div>
+          <div className="stat-content">
+            <h2>{currentAchievement.title}</h2>
+            <div className="achievement-stats">
+              {Object.entries(currentAchievement.stats).map(([key, value]) => (
+                <div key={key} className="stat-item">
+                  <span className="stat-key">{key}</span>
+                  <span className="stat-value">{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
+        <div className="stat-card achievement-showcase">
+          <div className="stat-label">SHOWCASE</div>
+          <div className="stat-content">
+            <img 
+              src={currentAchievement.image} 
+              alt={currentAchievement.title}
+              className="achievement-image" 
+            />
+          </div>
+        </div>
+
+        <div className="stat-card achievement-description">
+          <div className="stat-label">OVERVIEW</div>
+          <div className="stat-content">
+            <p>{currentAchievement.description}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="hero-section">
         <div className="projects-button">
           <Link to="/projects" className="button">
             Projects
@@ -115,31 +238,6 @@ const HomePage = () => {
         </a>
       </div>
 
-      <div className="slider-container">
-        <button className="slider-arrow left" onClick={prevSlide}>←</button>
-        <div className="slider-content">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`slide ${currentSlide === index ? 'active' : ''}`}
-            >
-              <div className="slide-image">
-                <img src={project.image} alt={project.title} />
-              </div>
-              <div className="slide-text">
-                <h3>{project.title}</h3>
-                <p>{project.subtitle}</p>
-                <p>{project.description}</p>
-                <Link to={project.link} className="read-more">
-                  Read more
-                  <span className="arrow">→</span>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-        <button className="slider-arrow right" onClick={nextSlide}>→</button>
-      </div>
 
       <div className="skills-section">
         <h2 className="skills-title">My Skills</h2>
