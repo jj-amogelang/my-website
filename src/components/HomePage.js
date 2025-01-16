@@ -17,14 +17,31 @@ import './HomePage.css';
 
 const achievementData = {
   Education: {
-    title: "BSc Information Technology",
+    title: "Education",
     image: "/images/blog/pic.JPG",
-    description: "Graduated with distinction in Robotics Programming from Eduvos Institute",
-    stats: {
-      year: "2023",
-      gpa: "3.8/4.0",
-      specialization: "Robotics"
-    }
+    description: "Dual degree holder with expertise in both Technology and Property Development",
+    degrees: [
+      {
+        title: "BSc Information Technology",
+        image: "/images/blog/pic.JPG",
+        description: "Graduated with distinction in Robotics Programming from Eduvos Institute",
+        stats: {
+          year: "2023",
+          institution: "Eduvos, Pretoria",
+          specialization: "Robotics"
+        }
+      },
+      {
+        title: "BSc Honors Property Studies",
+        image: "/images/blog/pic5.jpg",
+        description: "Successfully completed Property Studies at University of Witwatersrand",
+        stats: {
+          year: "2025",
+          institution: "University of Witwatersrand, Johannesburg",
+          specialization: "Property Development"
+        }
+      }
+    ]
   },
   Experience: {
     title: "Old Mutual Grad Hackathon",
@@ -180,38 +197,79 @@ const HomePage = () => {
       </div>
 
       <div className="stats-grid">
-        <div className="stat-card achievement-title">
-          <div className="stat-label">ACHIEVEMENT</div>
-          <div className="stat-content">
-            <h2>{currentAchievement.title}</h2>
-            <div className="achievement-stats">
-              {Object.entries(currentAchievement.stats).map(([key, value]) => (
-                <div key={key} className="stat-item">
-                  <span className="stat-key">{key}</span>
-                  <span className="stat-value">{value}</span>
+        {selectedMenu === 'Education' ? (
+          currentAchievement.degrees.map((degree, index) => (
+            <React.Fragment key={index}>
+              <div className="stat-card achievement-title">
+                <div className="stat-label">DEGREE {index + 1}</div>
+                <div className="stat-content">
+                  <h2>{degree.title}</h2>
+                  <div className="achievement-stats">
+                    {Object.entries(degree.stats).map(([key, value]) => (
+                      <div key={key} className="stat-item">
+                        <span className="stat-key">{key}</span>
+                        <span className="stat-value">{value}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="stat-card achievement-showcase">
+                <div className="stat-label">SHOWCASE</div>
+                <div className="stat-content">
+                  <img 
+                    src={degree.image} 
+                    alt={degree.title}
+                    className="achievement-image" 
+                  />
+                </div>
+              </div>
+
+              <div className="stat-card achievement-description">
+                <div className="stat-label">OVERVIEW</div>
+                <div className="stat-content">
+                  <p>{degree.description}</p>
+                </div>
+              </div>
+            </React.Fragment>
+          ))
+        ) : (
+          <>
+            <div className="stat-card achievement-title">
+              <div className="stat-label">ACHIEVEMENT</div>
+              <div className="stat-content">
+                <h2>{currentAchievement.title}</h2>
+                <div className="achievement-stats">
+                  {Object.entries(currentAchievement.stats).map(([key, value]) => (
+                    <div key={key} className="stat-item">
+                      <span className="stat-key">{key}</span>
+                      <span className="stat-value">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div className="stat-card achievement-showcase">
-          <div className="stat-label">SHOWCASE</div>
-          <div className="stat-content">
-            <img 
-              src={currentAchievement.image} 
-              alt={currentAchievement.title}
-              className="achievement-image" 
-            />
-          </div>
-        </div>
+            <div className="stat-card achievement-showcase">
+              <div className="stat-label">SHOWCASE</div>
+              <div className="stat-content">
+                <img 
+                  src={currentAchievement.image} 
+                  alt={currentAchievement.title}
+                  className="achievement-image" 
+                />
+              </div>
+            </div>
 
-        <div className="stat-card achievement-description">
-          <div className="stat-label">OVERVIEW</div>
-          <div className="stat-content">
-            <p>{currentAchievement.description}</p>
-          </div>
-        </div>
+            <div className="stat-card achievement-description">
+              <div className="stat-label">OVERVIEW</div>
+              <div className="stat-content">
+                <p>{currentAchievement.description}</p>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="hero-section">

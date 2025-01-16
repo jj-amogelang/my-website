@@ -1,6 +1,6 @@
 .portfolio-container {
   padding: 4rem 2rem;
-  background-color: #ffffff;
+  background-color: var(--light-beige);
 }
 
 .portfolio-content {
@@ -27,7 +27,8 @@
   position: relative;
   border-radius: 0.8rem;
   overflow: hidden;
-  background: #f5f6fa;
+  background: var(--white);
+  border: 1px solid var(--light-blue);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
@@ -59,7 +60,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(173, 216, 230, 0.95);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,7 +81,7 @@
 .portfolio-overlay h3 {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  color: #74b9ff;
+  color: var(--white);
 }
 
 .portfolio-overlay .category {
@@ -98,10 +99,10 @@
 }
 
 .see-more {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   padding: 0.5rem 1.5rem;
-  border: 2px solid #74b9ff;
+  border: 2px solid var(--white);
   border-radius: 2rem;
   transition: all 0.3s ease;
   font-size: 0.9rem;
@@ -110,15 +111,15 @@
 }
 
 .see-more:hover {
-  background: #74b9ff;
-  color: white;
+  background: var(--white);
+  color: var(--deep-blue);
   transform: translateY(-2px);
 }
 
 .portfolio-info {
   padding: 1rem;
   text-align: center;
-  background: #f5f6fa;
+  background: var(--beige);
 }
 
 .portfolio-info h3 {
@@ -148,12 +149,12 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #dfe6e9;
+  background-color: var(--light-blue);
   transition: background-color 0.3s ease;
 }
 
-.dot:hover {
-  background-color: #74b9ff;
+.dot:hover, .dot.active {
+  background-color: var(--deep-blue);
 }
 
 /* Responsive Design */

@@ -1,8 +1,18 @@
+:root {
+  --beige: #F5F5DC;
+  --light-beige: #FAF9F6;
+  --light-blue: #ADD8E6;
+  --soft-blue: #B8E2F2;
+  --deep-blue: #87CEEB;
+  --white: #FFFFFF;
+}
+
 .home-container {
-  background-color: #ffffff;
+  background-color: var(--light-beige);
   min-height: 100vh;
   color: #2d3436;
   padding: 20px;
+  padding-top: 80px;
 }
 
 .hero-section {
@@ -100,7 +110,7 @@
 }
 
 .social-links a {
-  background-color: #f5f6fa;
+  background-color: var(--white);
   color: #2d3436;
   text-decoration: none;
   padding: 0.8rem 1.5rem;
@@ -110,6 +120,7 @@
   gap: 0.8rem;
   transition: all 0.3s ease;
   font-size: 1rem;
+  border: 1px solid var(--light-blue);
 }
 
 .social-links a svg {
@@ -117,8 +128,8 @@
 }
 
 .social-links a:hover {
-  background-color: #74b9ff;
-  color: white;
+  background-color: var(--soft-blue);
+  color: var(--white);
   transform: translateY(-2px);
 }
 
@@ -210,7 +221,7 @@
 .skills-section {
   margin-top: 4rem;
   padding: 2rem 0;
-  background-color: #f5f6fa;
+  background: linear-gradient(to right, var(--beige), var(--light-beige));
   overflow: hidden;
 }
 
@@ -235,7 +246,7 @@
 
 .skill-card {
   flex: 0 0 auto;
-  background-color: #ffffff;
+  background: var(--white);
   border-radius: 0.8rem;
   padding: 1.5rem;
   margin: 0 1rem;
@@ -246,6 +257,7 @@
   align-items: center;
   text-align: center;
   width: 150px;
+  border: 1px solid var(--light-blue);
 }
 
 .skill-card:hover {
@@ -261,7 +273,7 @@
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
-  color: #74b9ff;
+  color: var(--deep-blue);
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -323,8 +335,6 @@
 
 
 @media (max-width: 768px) {
-
-
   .hero-image img {
     max-width: 100%;
   }
@@ -350,7 +360,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  background-color: #a5b5b3;
+  background: linear-gradient(135deg, var(--light-blue), var(--deep-blue));
   border-radius: 1rem;
   margin-bottom: 2rem;
 }
@@ -373,7 +383,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   cursor: pointer;
@@ -395,20 +405,42 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 3rem;
-  transition: all 0.3s ease;
+}
+
+/* Add spacing between degree sets */
+.stats-grid > *:nth-child(n+4) {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #f5f6fa;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid > *:nth-child(n+4) {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
 }
 
 .stat-card {
-  background: #ffffff;
+  background: var(--white);
   border-radius: 1rem;
   padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  border: 1px solid var(--light-blue);
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px rgba(173, 216, 230, 0.2);
 }
 
 .achievement-title h2 {
   font-size: 1.8rem;
-  color: #2d3436;
+  color: var(--deep-blue);
   margin-bottom: 1.5rem;
   font-family: 'Space Mono', monospace;
 }
@@ -651,4 +683,75 @@
   .role-selector:hover .role-options {
     transform: translateX(-50%) translateY(0);
   }
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.education-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateY(-2px);
+}
+
+.education-item h3 {
+  color: #2d3436;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-item .institution {
+  color: #74b9ff;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.education-item .year {
+  color: #636e72;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.education-item .specialization {
+  color: #2d3436;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.education-item .achievement {
+  color: #0984e3;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Update achievement-showcase styles */
+.achievement-showcase .stat-content {
+  height: 300px;
+  overflow-y: auto;
+}
+
+.achievement-showcase .stat-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.achievement-showcase .stat-content::-webkit-scrollbar-track {
+  background: #f5f6fa;
+  border-radius: 3px;
+}
+
+.achievement-showcase .stat-content::-webkit-scrollbar-thumb {
+  background: #74b9ff;
+  border-radius: 3px;
 }
